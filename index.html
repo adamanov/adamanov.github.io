@@ -3,74 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Your Title</title>
+    <title>Asan Adamanov - Robotics Software Developer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: url('https://example.com/robot-background.jpg'); /* Replace with actual image URL */
+            background-size: cover;
+            background-attachment: fixed;
         }
         header {
-            background: #333;
-            color: #fff;
+            background-color: rgba(0, 0, 255, 0.7);
+            color: white;
             padding: 1em 0;
             text-align: center;
         }
-        nav a {
-            margin: 0 15px;
-            color: white;
-            text-decoration: none;
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 255, 0.7);
         }
-        .container {
+        .tabs button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .tabs button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .tabs button.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid white;
+        }
+        .tab-content {
+            display: none;
             padding: 2em;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 1em;
+            border-radius: 10px;
+        }
+        .tab-content.active {
+            display: block;
         }
         footer {
-            background: #333;
-            color: #fff;
             text-align: center;
             padding: 1em 0;
+            background-color: rgba(0, 0, 255, 0.7);
+            color: white;
             position: fixed;
-            width: 100%;
             bottom: 0;
+            width: 100%;
         }
     </style>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Set default tab
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.tablinks').click();
+        });
+    </script>
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
-        <p>Your Title</p>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <h1>Asan Adamanov</h1>
+        <p>Robotics Software Developer</p>
     </header>
     
-    <div id="home" class="container">
-        <h2>Home</h2>
-        <p>Welcome to my personal webpage!</p>
+    <div class="tabs">
+        <button class="tablinks" onclick="openTab(event, 'about')">About Me</button>
+        <button class="tablinks" onclick="openTab(event, 'portfolio')">Portfolio</button>
+        <button class="tablinks" onclick="openTab(event, 'contact')">Contact</button>
     </div>
     
-    <div id="about" class="container">
+    <div id="about" class="tab-content">
         <h2>About Me</h2>
-        <p>Here is some information about me...</p>
+        <p>Hello! I'm Asan Adamanov, a passionate Robotics Software Developer with a keen interest in artificial intelligence and automation. With a background in computer science and engineering, I enjoy solving complex problems and developing innovative solutions in the field of robotics.</p>
     </div>
     
-    <div id="portfolio" class="container">
+    <div id="portfolio" class="tab-content">
         <h2>Portfolio</h2>
-        <p>Check out my projects below...</p>
-        <!-- Add project details here -->
+        
+        <h3>Completed Projects</h3>
+        <h4>Project: Mobile Manipulator</h4>
+        <p>Description: Developed a mobile manipulator for various automated tasks in dynamic environments.</p>
+        <p>Video example:</p>
+        <video width="320" height="240" controls>
+            <source src="https://example.com/mobile-manipulator-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <h3>University Projects</h3>
+        <h4>Project: AGV 1</h4>
+        <p>Description: Designed and implemented an Automated Guided Vehicle (AGV) for material handling.</p>
+        <p>Image example:</p>
+        <img src="https://example.com/agv1-image.jpg" alt="AGV 1" width="320" height="240">
     </div>
     
-    <div id="contact" class="container">
+    <div id="contact" class="tab-content">
         <h2>Contact</h2>
-        <p>You can reach me at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+        <p>Feel free to reach out to me via email at <a href="mailto:asan.adamanov@example.com">asan.adamanov@example.com</a> or connect with me on <a href="https://linkedin.com/in/asan-adamanov" target="_blank">LinkedIn</a>.</p>
     </div>
     
     <footer>
-        &copy; 2024 Your Name
+        &copy; 2024 Asan Adamanov
     </footer>
 </body>
 </html>
