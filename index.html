@@ -121,7 +121,36 @@
         <h2>Contact</h2>
         <p>Feel free to reach out to me via email at <a href="mailto:asan.adamanov@example.com">asan.adamanov@example.com</a> or connect with me on <a href="https://linkedin.com/in/asan-adamanov" target="_blank">LinkedIn</a>.</p>
     </div>
+
+    <!-- Include Marked.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      // Function to load and convert a Markdown file
+      function loadMarkdown(filePath, elementId) {
+        fetch(filePath)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Could not fetch ${filePath}: ${response.statusText}`);
+            }
+            return response.text();
+          })
+          .then(md => {
+            // Convert Markdown to HTML using Marked
+            document.getElementById(elementId).innerHTML = marked(md);
+          })
+          .catch(error => console.error('Error loading Markdown:', error));
+      }
     
+      // Load the Markdown content once the DOM is ready
+      document.addEventListener('DOMContentLoaded', function () {
+        loadMarkdown('content_about.md', 'about');
+        loadMarkdown('content_portfolio.md', 'portfolio');
+        loadMarkdown('content_contact.md', 'contact');
+        
+        // Optionally, set the default active tab if not already set by your tab logic.
+        document.querySelector('.tablinks').click();
+      });
+    </script>
     <footer>
         &copy; 2024 Asan Adamanov
     </footer>
